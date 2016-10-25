@@ -1,0 +1,6 @@
+rootProject.name = 'forte-atg-hd'
+include ':at-common'
+include ':at-atg-hd'
+
+project(':at-common').projectDir = "$rootDir/at-common" as File
+project(':at-atg-hd').projectDir = "$rootDir/at-atg-hd" as File

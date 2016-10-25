@@ -1,0 +1,30 @@
+description = 'ATG HD ATs'
+dependencies {
+    compile project(':at-common')
+    testCompile project(':at-common').sourceSets.test.output
+    compile fileTree(dir: 'lib', include: '*.jar')
+}
+
+project.drivers.each { driver ->
+    task "${driver}_Test"(type: Test) {
+        dependsOn copyChromeDriver
+        include('com/fortegrp/at/specs/**/'+project.testsPattern )
+        systemProperty "browser", driver
+        systemProperty "testEnv", System.properties['testEnv']
+        systemProperty "remoteUrl", System.properties['remoteUrl']
+        systemProperty "testCategory", System.properties['testCategory']
+        systemProperty "geb.build.reportsDir", 'reports'
+        ignoreFailures = true
+        maxParallelForks = System.properties['thread.count'] ? System.properties['thread.count'].toInteger() : 1
+        forkEvery = 4
+        outputs.upToDateWhen { false }
+        reports {
+            junitXml.destination = file("$buildDir/test-results/$name")
+        }
+    }
+}
+
+test {
+    dependsOn drivers.collect { driver -> tasks["${driver}_Test"] }
+    enabled = false
+}

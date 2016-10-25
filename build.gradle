@@ -1,0 +1,58 @@
+allprojects {
+    apply plugin: 'maven'
+
+    group = 'com.fortegrp.ats'
+    version = 'TRUNK-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'groovy'
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+    defaultTasks 'clean', 'test'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        flatDir {
+            dirs "${rootDir}/at-common/lib"
+        }
+    }
+
+    ext {
+        drivers = System.properties['browsers'] ? System.properties['browsers'].tokenize(';') : ["chrome"]
+    }
+
+    ext {
+        testsPattern = System.properties['test.single'] ? System.properties['test.single'] +"*":"*"
+    }
+
+    delete 'reports'
+    delete 'log'
+
+    task copyChromeDriver(type: Copy) {
+        def fromDir = file("${rootDir}/at-common/src/main/resources")
+        def toDir = file("${projectDir}/src/test/resources")
+        from(fromDir)
+        into(toDir)
+        include '**/*chromedriver*'
+        outputs.upToDateWhen { false }
+    }
+
+    test {
+        dependsOn copyChromeDriver
+        systemProperty "browser", System.properties['browser']
+        systemProperty "geb.env", System.properties['geb.env']
+        systemProperty "testCategory", System.properties['testCategory']
+        systemProperty "remoteUrl", System.properties['remoteUrl']
+        systemProperty "geb.build.reportsDir", 'reports'
+        ignoreFailures = true
+        maxParallelForks = System.properties['thread.count'] ? System.properties['thread.count'].toInteger() : 1
+        forkEvery = 4
+        outputs.upToDateWhen { false }
+        reports {
+            junitXml.destination = file("$buildDir/test-results/$name")
+        }
+    }
+}

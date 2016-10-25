@@ -1,0 +1,1 @@
+gradlew.bat clean test -DtestEnv=va_dev -Dbrowser=chrome
