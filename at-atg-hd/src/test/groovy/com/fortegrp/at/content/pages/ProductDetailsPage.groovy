@@ -2,7 +2,7 @@ package com.fortegrp.at.content.pages
 
 import com.fortegrp.at.entities.SKU
 
-class ProductDetailsPage extends BaseGTPage {
+class ProductDetailsPage extends BaseHDPage {
 
     static url = "state/pdp"
     static at = {

@@ -1,10 +1,10 @@
 package com.fortegrp.at.specs.search
 
-import com.fortegrp.at.common.BaseGTSpec
+import com.fortegrp.at.common.BaseHDSpec
 import com.fortegrp.at.content.pages.SearchResultsPage
 
 import static com.fortegrp.at.data.TestData.defaultProduct
-class SearchSpec extends BaseGTSpec {
+class SearchSpec extends BaseHDSpec {
 
     def "Search product by partial title"() {
 

@@ -1,7 +1,7 @@
 package com.fortegrp.at.content.pages
 
 
-class MyProfilePage extends BaseGTPage {
+class MyProfilePage extends BaseHDPage {
 
     static url = "state/myProfile"
     static at = { myProfileTitle.displayed}

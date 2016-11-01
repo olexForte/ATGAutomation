@@ -2,7 +2,7 @@ package com.fortegrp.at.content.pages
 
 import com.fortegrp.at.content.modules.shoppingcart.ShoppingCartItemModule
 
-class ShoppingCartPage extends BaseGTPage {
+class ShoppingCartPage extends BaseHDPage {
 
     static url = "state/shoppingCart"
     static at = { cartTitle.displayed  && (shoppingCartTotals.displayed||emptyCartMessage.displayed)}

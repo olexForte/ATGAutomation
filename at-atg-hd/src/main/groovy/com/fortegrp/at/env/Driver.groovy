@@ -27,9 +27,9 @@ class Driver {
         if (driverInstance == null) {
             switch (Environment.browserType) {
                 case "chrome":
-                    String extension
-                    extension = System.properties['os.name'].toLowerCase().contains('windows') ?".exe":""
-                    extension = extension == '' ? System.properties['os.name'].toLowerCase().contains('mac') ?"_mac":"" : ""
+                    String extension = "";
+                    if (System.properties['os.name'].toLowerCase().contains('windows')) extension = ".exe"
+                    if (System.properties['os.name'].toLowerCase().contains('mac'))     extension = "_mac"
                     System.setProperty("webdriver.chrome.driver", Environment.getCWD()+"/src/test/resources/chromedriver" + extension)
                     def downloadFilepath = Environment.getDownloadDir()
                     downloadFilepath.mkdirs();

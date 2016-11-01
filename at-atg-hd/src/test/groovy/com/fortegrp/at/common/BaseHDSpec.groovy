@@ -3,7 +3,7 @@ package com.fortegrp.at.common
 import com.fortegrp.at.common.annotation.RetryOnFailure
 import com.fortegrp.at.common.utils.LogHelper
 import com.fortegrp.at.common.utils.rest.RESTHelper
-import com.fortegrp.at.content.pages.BaseGTPage
+import com.fortegrp.at.content.pages.BaseHDPage
 import com.fortegrp.at.content.pages.CategoryLandingPage
 import com.fortegrp.at.content.pages.CheckoutPage
 import com.fortegrp.at.content.pages.HomePage
@@ -27,7 +27,7 @@ import static com.fortegrp.at.data.TestData.defaultUser
 @Slf4j
 @RetryOnFailure
 //TODO: Get rid of hardcoded sleeps
-class BaseGTSpec extends GebReportingSpec implements BaseSpec {
+class BaseHDSpec extends GebReportingSpec implements BaseSpec {
 
     static User currentUser
 
@@ -37,7 +37,7 @@ class BaseGTSpec extends GebReportingSpec implements BaseSpec {
             RESTHelper.getClient(Environment.getTestEnv().restUrl)
             CommonRESTHelper.ping()
             waitFor { driver.currentUrl.contains(HomePage.url) }
-            at BaseGTPage
+            at BaseHDPage
         }
     }
 
@@ -50,7 +50,7 @@ class BaseGTSpec extends GebReportingSpec implements BaseSpec {
     def openLoginPage() {
         switch (driver.currentUrl) {
             case baseUrl + HomePage.url:
-                at BaseGTPage
+                at BaseHDPage
                 if (!page.header.signInRegisterLink.displayed) {
                     logout()
                 }
@@ -98,7 +98,7 @@ class BaseGTSpec extends GebReportingSpec implements BaseSpec {
             case ~/.*${MyProfilePage.url}.*/:
                 return MyProfilePage;
             case baseUrl:
-                return BaseGTPage;
+                return BaseHDPage;
             default:
                 throw new RuntimeException("Unknown page has been detected: " + driver.getCurrentUrl())
                 break
@@ -129,8 +129,8 @@ class BaseGTSpec extends GebReportingSpec implements BaseSpec {
     }
 
     def logout() {
-        at BaseGTPage
-        if (header.userMenuButton.displayed) {
+        at BaseHDPage
+        if (header.signOutLink.displayed) {
             header.logout()
             sleep(500)
             to LoginPage

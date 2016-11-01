@@ -1,14 +1,14 @@
 package com.fortegrp.at.specs.order
 
-import com.fortegrp.at.common.BaseGTSpec
+import com.fortegrp.at.common.BaseHDSpec
 import com.fortegrp.at.content.pages.CheckoutPage
 import com.fortegrp.at.content.pages.OrderConfirmationPage
 import com.fortegrp.at.content.pages.ProductDetailsPage
 import com.fortegrp.at.content.pages.ShoppingCartPage
 
 import static com.fortegrp.at.data.TestData.*
-import static com.fortegrp.at.common.utils.LogHelper.*
-class CheckoutSpec extends BaseGTSpec {
+
+class CheckoutSpec extends BaseHDSpec {
     def setupTest() {
         login()
          clearShoppingCart()

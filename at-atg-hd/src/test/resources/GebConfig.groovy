@@ -7,18 +7,18 @@ import org.openqa.selenium.WebElement
 
 envs {
     stage_env {
-        baseUrl = "https://stage.goldtoe.com/"
-        restUrl = "https://stage.goldtoe.com/"
+        baseUrl = "http://dev.healthydirections.com:7003/"
+        restUrl = "http://dev.healthydirections.com:7003/"
     }
     dev_env {
-        baseUrl = "https://dev.goldtoe.com/"
-        restUrl = "https://dev.goldtoe.com/"
+        baseUrl = "http://dev.healthydirections.com:7003/"
+        restUrl = "http://dev.healthydirections.com:7003/"
     }
 
 }
 
 waiting {
-    timeout = 15
+    timeout = 30
     retryInterval = 0.5
     slow { timeout = 10 }
 }

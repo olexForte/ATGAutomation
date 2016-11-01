@@ -6,7 +6,7 @@ import com.fortegrp.at.content.modules.checkout.ProfileInformationPanelModule
 import com.fortegrp.at.content.modules.checkout.ShippingStepPanelModule
 import com.fortegrp.at.content.modules.checkout.SummaryStepPanelModule
 
-class CheckoutPage extends BaseGTPage {
+class CheckoutPage extends BaseHDPage {
 
     static url = "state/checkout"
     static at = {

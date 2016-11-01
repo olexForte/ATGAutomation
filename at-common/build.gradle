@@ -23,5 +23,6 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: seleniumVersion
     compile group: 'org.seleniumhq.selenium', name: 'selenium-support', version: seleniumVersion
     compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: seleniumVersion
+    compile group: 'org.apache.commons', name: 'commons-csv', version: '1.4'
     compile fileTree(dir: 'lib', include: '*.jar')
 }

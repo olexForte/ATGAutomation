@@ -5,7 +5,7 @@ import com.fortegrp.at.content.modules.login.HeaderModule
 import com.fortegrp.at.content.modules.shoppingcart.ShoppingCartPopupModule
 import org.openqa.selenium.Keys
 
-class BaseGTPage extends BasePage {
+class BaseHDPage extends BasePage {
     static at = { header.displayed && footer.displayed}
     static content = {
         header { module HeaderModule }

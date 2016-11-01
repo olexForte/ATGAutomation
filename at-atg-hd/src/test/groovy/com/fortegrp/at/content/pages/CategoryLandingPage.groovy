@@ -1,6 +1,6 @@
 package com.fortegrp.at.content.pages
 
-class CategoryLandingPage extends BaseGTPage {
+class CategoryLandingPage extends BaseHDPage {
 
     static url = "#/browse"
     static at = { categoryTitle.displayed }

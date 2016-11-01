@@ -4,7 +4,7 @@ import com.fortegrp.at.content.modules.checkout.PaymentStepPanelModule
 import com.fortegrp.at.content.modules.checkout.ShippingStepPanelModule
 import com.fortegrp.at.content.modules.checkout.SummaryStepPanelModule
 
-class OrderConfirmationPage extends BaseGTPage {
+class OrderConfirmationPage extends BaseHDPage {
 
     static url = "state/order-confirmation"
     static at = { orderConfiramtionTitle.displayed }

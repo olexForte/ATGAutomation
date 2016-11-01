@@ -6,6 +6,7 @@ execution.log
 **/log
 **/reports
 **/build
+**/classes
 
 # Compiled source #
 ###################

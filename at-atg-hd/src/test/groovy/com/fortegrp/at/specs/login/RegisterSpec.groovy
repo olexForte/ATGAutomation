@@ -1,6 +1,6 @@
 package com.fortegrp.at.specs.login
 
-import com.fortegrp.at.common.BaseGTSpec
+import com.fortegrp.at.common.BaseHDSpec
 import com.fortegrp.at.content.pages.HomePage
 import com.fortegrp.at.content.pages.LoginPage
 
@@ -8,7 +8,7 @@ import com.fortegrp.at.data.TestData
 import com.fortegrp.at.entities.User
 import spock.lang.Unroll
 
-class RegisterSpec extends BaseGTSpec {
+class RegisterSpec extends BaseHDSpec {
 
     @Unroll
     def "Register_User_With_Valid_Attributes"() {

@@ -2,7 +2,7 @@ package com.fortegrp.at.content.pages
 
 import com.fortegrp.at.content.modules.search.SearchResultItemModule
 
-class SearchResultsPage extends BaseGTPage {
+class SearchResultsPage extends BaseHDPage {
 
     static url = "search"
     static at = { searchTitle.displayed }
